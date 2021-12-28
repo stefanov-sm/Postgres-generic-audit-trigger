@@ -3,7 +3,7 @@ PostgreSQL generic audit log of inserts, updates and deletes into table "audit"
 
 **Demo**
 ```sql
--- create table "audit", functions "audit_tf" and "create_audit_trigger". Definitions in audit-log.sql 
+-- create table "audit", functions "audit_tf" and "create_audit_trigger" defined in audit-log.sql 
 
 truncate table audit;
 drop table if exists test_table;
