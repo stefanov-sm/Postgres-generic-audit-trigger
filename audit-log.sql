@@ -1,3 +1,6 @@
+-- Generic audit log trigger implemenatation
+-- S. Stefanov, Dec 2021
+
 create table audit
 (
   id bigserial primary key not null,
