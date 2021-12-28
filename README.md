@@ -5,14 +5,14 @@ PostgreSQL generic audit log of inserts, updates and deletes into table "audit"
 ```sql
 -- create table "audit", functions "audit_tf" and "create_audit_trigger" defined in audit-log.sql 
 
-truncate table audit;
+delete from audit;
 drop table if exists test_table;
 create table test_table (x integer, y integer, z text, t timestamptz default now());
 select create_audit_trigger('test_table');
 
 insert into test_table (x, y, z) values (2, 2, 'two');
 update test_table set x = 1, y = 10 where x = 2;
-update test_table set x = x where true; -- this shall not log anything
+update test_table set x = x; -- this shall not log anything
 delete from test_table where x = 1;
 select * from audit;
 ```
