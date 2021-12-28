@@ -1,14 +1,14 @@
 # Postgres generic audit trigger
-PostgreSQL generic audit log of inserts, updates and deletes into table 'audit'.  
+PostgreSQL generic audit log of inserts, updates and deletes into table "audit"  
 
 **Demo**
 ```sql
--- create table "audit", functions "audit_tf" and "create_audit_trigger" 
+-- create table "audit", functions "audit_tf" and "create_audit_trigger". Definitions in audit-log.sql 
 
+truncate table audit;
 drop table if exists test_table;
 create table test_table (x integer, y integer, z text, t timestamptz default now());
 select create_audit_trigger('test_table');
-truncate table audit;
 
 insert into test_table (x, y, z) values (2, 2, 'two');
 update test_table set x = 1, y = 10 where x = 2;
