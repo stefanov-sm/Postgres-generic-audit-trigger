@@ -50,11 +50,11 @@ $function$;
 create or replace function create_audit_trigger(table_name text, schema_name text default 'public') returns void language plpgsql as
 $function$
 begin
-execute format 
-(
-'create trigger "%1$s_audit_trigger" after insert or update or delete on %2$I.%1$I for each row execute procedure audit_tf()', 
- table_name, 
- schema_name
-);
+  execute format 
+  (
+  'create trigger "%1$s_audit_trigger" after insert or update or delete on %2$I.%1$I for each row execute procedure audit_tf()', 
+   table_name, 
+   schema_name
+  );
 end;
 $function$;
