@@ -1,4 +1,4 @@
-# Postgres generic audit trigger
+# PostgreSQL generic audit trigger
 PostgreSQL generic audit log of inserts, updates and deletes into table "audit"  
 
 **Demo**
