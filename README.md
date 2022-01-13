@@ -1,5 +1,5 @@
 # PostgreSQL generic audit trigger
-PostgreSQL generic audit log of inserts, updates and deletes into table "audit"  
+PostgreSQL generic audit log of inserts, updates and deletions into table "audit"  
 
 **Demo**
 ```sql
