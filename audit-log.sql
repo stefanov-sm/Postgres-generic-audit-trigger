@@ -12,7 +12,8 @@ create table audit
   j_new jsonb null
 );
 
-create or replace function audit_tf() returns trigger language plpgsql as
+create or replace function audit_tf()
+returns trigger language plpgsql as
 $function$
 declare
   EMPTY_JB constant jsonb := '{}'::jsonb;
@@ -50,7 +51,8 @@ $function$;
 
 -- SQLi prone, to be granted to DBA only
 --
-create or replace function create_audit_trigger(table_name text, schema_name text default 'public') returns void language plpgsql as
+create or replace function create_audit_trigger(table_name text, schema_name text default 'public')
+returns void language plpgsql as
 $function$
 begin
   execute format 
