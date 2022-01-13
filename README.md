@@ -3,17 +3,26 @@ PostgreSQL generic audit log of inserts, updates and deletes into table "audit"
 
 **Demo**
 ```sql
--- create table "audit", functions "audit_tf" and "create_audit_trigger" defined in audit-log.sql 
+-- First create table "audit", functions "audit_tf" and "create_audit_trigger".
+-- These are defined in file audit-log.sql 
 
 delete from audit;
-drop table if exists test_table;
-create table test_table (x integer, y integer, z text, t date default current_date);
+
+create table if not exists test_table
+(
+ x integer,
+ y integer,
+ z text,
+ t date default current_date
+);
+
 select create_audit_trigger('test_table');
 
 insert into test_table (x, y, z) values (2, 2, 'two');
 update test_table set x = 1, y = 10 where x = 2;
 update test_table set x = x; -- this shall not log anything
 delete from test_table where x = 1;
+
 select * from audit;
 ```
 |id|ts                           |schema_name|table_name|operation|j_old                                           |j_new                                          |
