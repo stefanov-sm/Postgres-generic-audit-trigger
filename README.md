@@ -7,6 +7,8 @@ Table `audit.audit` and functions `audit.key_values_as_jsonb`, `audit.audit_trig
 
 > [!NOTE]
 > Function `audit.audit_trigger_fn` uses [JSONB subscripting](https://www.postgresql.org/docs/14/datatype-json.html#JSONB-SUBSCRIPTING) syntax, available since PG14. For older versions lines 55 - 57 in file `audit-log.sql` need to be rewritten.
+> 
+> Non identifier-friendly names ("Drop me", "Is it good") are used deliberately
 
 **Demo**
 ```sql
